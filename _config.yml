@@ -1,0 +1,19 @@
+# Site settings
+title: Lisa Blog
+header-img: img/love.jpg
+email: lisaling22@live.cn
+description: "This is the first blog of Lisa!"
+baseurl: "/lisa-blog"
+url: "http://yourdomain.com"
+github_username:  laoshen22
+flickr_username:  laoshen22
+gems: [jekyll-paginate]
+paginate: 4
+paginate_path: "page:num"
+
+# Build settings
+markdown: kramdown
+highlighter: pygments
+permalink: pretty
+paginate: 5
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
