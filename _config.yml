@@ -3,8 +3,8 @@ title: Lisa Blog
 header-img: img/love.jpg
 email: lisaling22@live.cn
 description: "This is the first blog of Lisa!"
-baseurl: "/lisa-blog"
-url: "http://yourdomain.com"
+baseurl: ""
+url: "http://username.github.io"
 github_username:  laoshen22
 flickr_username:  laoshen22
 gems: [jekyll-paginate]
