@@ -1,17 +1,16 @@
-#Clean Blog by Start Bootstrap - Jekyll Version
+#Lisa Blog by Start Bootstrap - Jekyll Version
 
 The official Jekyll version of the Clean Blog theme by [Start Bootstrap](http://startbootstrap.com/).
 
-###[View Live Demo &rarr;](http://ironsummitmedia.github.io/startbootstrap-clean-blog-jekyll/)
 
-## Before You Begin
+## Start bootstrap
 
 In the _config.yml file, the base URL is set to /startbootstrap-clean-blog-jekyll which is this themes gh-pages preview. It's recommended that you remove the base URL before working with this theme locally!
 
 It should look like this:
 `baseurl: ""`
 
-## What's Included
+## Preview the build in brower
 
 A full Jekyll environment is included with this theme. If you have Jekyll installed, simply run `jekyll serve` in your command line and preview the build in your browser. You can use `jekyll serve --watch` to watch for changes in the source files as well.
 
