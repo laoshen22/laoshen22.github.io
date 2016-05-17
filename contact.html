@@ -11,9 +11,13 @@ header-img: "img/loveself.jpg"
 <!-- NOTE: To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
 
 
-<form action="//flipmail.co/api/u6yPdrTp2RCnzcd18abF" method="post">
-   <input type="text" name="name">
-   <input type="email" name="email">
-   <textarea name="message"></textarea>
-   <button type="submit">Submit Form</button>
+<form action="//formspree.io/lisaling22@live.cn" method="POST">
+    <input type="text" name="name">
+    <input type="email" name="_replyto">
+    <textarea name="message"></textarea>
+
+    <input type="text" name="_gotcha" style="display:none">
+    <input type="hidden" name="_subject" value="Message via http://domain.com">
+
+    <input type="submit" value="Send">
 </form>
