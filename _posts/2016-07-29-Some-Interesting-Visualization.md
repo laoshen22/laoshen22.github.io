@@ -33,13 +33,19 @@ author:     "Lisa"
 <iframe src="http://www.r2d3.us/%E5%9C%96%E8%A7%A3%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E7%AC%AC%E4%B8%80%E7%AB%A0/" style="border:1px solid #e1e8ed;width:120%;height:560px;"></iframe>
 
             
+# 美国公民的投票习惯演变
+美国人的选举投票习惯从2004年到2012年发生了什么变化。
+<a href="http://www.nytimes.com/interactive/2016/06/10/upshot/voting-habits-turnout-partisanship.html?_r=1&register=google" class="commit-link"> http://www.nytimes.com/interactive/2016/06/10/upshot/voting-habits-turnout-partisanship.html?_r=1&register=google</a>
+        
+        
+<iframe src="http://www.nytimes.com/interactive/2016/06/10/upshot/voting-habits-turnout-partisanship.html?_r=1&register=google" style="border:1px solid #e1e8ed;width:120%;height:560px;"></iframe>
        
       
   
 # 音乐流行的变化 
 在不同时间流行着怎样的音乐类型
 <a href="https://research.google.com/bigpicture/music/" class="commit-link">
-          https://research.google.com/bigpicture/music/</a></p>
+          https://research.google.com/bigpicture/music/</a>
         
         
 <iframe src="https://research.google.com/bigpicture/music/" style="border:1px solid #e1e8ed;width:120%;height:560px;"></iframe>            
@@ -59,7 +65,7 @@ author:     "Lisa"
         4,2&seed=0.65840&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=
         false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=
         false&problem=classification&initZero=false" class="commit-link">
-          网址链接</a></p>
+          网址链接</a>
         
 
 <iframe src="http://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=
@@ -71,17 +77,16 @@ author:     "Lisa"
 
 # Simpsons Paradox
 <a href="http://blog.vctr.me/posts/simpsons-paradox.html" class="commit-link">
-          http://blog.vctr.me/posts/simpsons-paradox.html</a></p>
+          http://blog.vctr.me/posts/simpsons-paradox.html</a>
         
 <iframe src="http://blog.vctr.me/posts/simpsons-paradox.html" style="border:1px solid #e1e8ed;width:120%;height:560px;"></iframe>
 
 
 # Another example
-<html>
- <body>
-  <iframe src="http://www.youtube.com/embed/W7qWa52k-nE"
+Hans Rosling's 200 Countries, 200 Years, 4 Minutes - The Joy of Stats
+          
+  <iframe src="https://www.youtube.com/watch?v=jbkSRLYSojo"
    width="560" height="315" frameborder="0" allowfullscreen></iframe>
- </body>
-</html>
+
 
         
