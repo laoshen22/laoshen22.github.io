@@ -46,10 +46,10 @@ author:     "Lisa"
 # 全球新闻主题
 全球新闻媒体当前正在报道的主题和地点。 探索形成不同观点的原因
 <a href="https://unfiltered.news/#/2016/07/29/ca" class="commit-link">
-          https://unfiltered.news/#/2016/07/29/ca</a></p>
+          https://unfiltered.news/#/2016/07/29/ca</a>
         
+![Screenshot](https://unfiltered.news/#/2016/07/29/ca)
         
-<iframe src="https://unfiltered.news/#/2016/07/29/ca" style="border:1px solid #e1e8ed;width:120%;height:560px;"></iframe>      
 
 
 # 神经网络和深度学习怎样工作
