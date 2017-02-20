@@ -48,7 +48,8 @@ author:     "Lisa"
 <a href="https://unfiltered.news/#/2016/07/29/ca" class="commit-link">
           https://unfiltered.news/#/2016/07/29/ca</a>
         
-![Screenshot](ScreenShot2)
+
+<iframe src="https://unfiltered.news/#/2016/07/29/ca" style="border:1px solid #e1e8ed;width:120%;height:560px;"></iframe>
         
 
 
@@ -61,7 +62,11 @@ author:     "Lisa"
           网址链接</a></p>
         
 
-![Screenshot](ScreenShot1)
+<iframe src="http://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=
+        circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=
+        4,2&seed=0.65840&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=
+        false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=
+        false&problem=classification&initZero=false" style="border:1px solid #e1e8ed;width:120%;height:560px;"></iframe>
 
 
 # Simpsons Paradox
@@ -71,19 +76,12 @@ author:     "Lisa"
 <iframe src="http://blog.vctr.me/posts/simpsons-paradox.html" style="border:1px solid #e1e8ed;width:120%;height:560px;"></iframe>
 
 
-<section>
-        <h1>Another example</h1>
-       <html>
-       <body>
+# Another example
+<html>
+ <body>
+  <iframe src="http://www.youtube.com/embed/W7qWa52k-nE"
+   width="560" height="315" frameborder="0" allowfullscreen></iframe>
+ </body>
+</html>
 
-        <video width="400" controls>
-        <source src="video.mp4" type="video/mp4">
-        <source src="video.ogg" type="video/ogg">
-        Your browser does not support HTML5 video.
-        </video>
-
-
-       </body>
-       </html>
-</section>   
         
