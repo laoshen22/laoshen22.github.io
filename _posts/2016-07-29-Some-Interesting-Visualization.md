@@ -6,7 +6,6 @@ author:     "Lisa"
 ---
 
 
-[visualization-talk][http://lisaling.site/visualization-talk/]
 
 # 2016欧洲杯
         
@@ -81,6 +80,8 @@ author:     "Lisa"
 
 # Another example
 Hans Rosling's 200 Countries, 200 Years, 4 Minutes - The Joy of Stats
-          
+<html>
+    <body>         
 <iframe width="560" height="315" src="https://www.youtube.com/watch?v=jbkSRLYSojo" frameborder="0" allowfullscreen></iframe>
-        
+    </body>
+</html>
