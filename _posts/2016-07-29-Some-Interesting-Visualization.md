@@ -65,7 +65,7 @@ author:     "Lisa"
         circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=
         4,2&seed=0.65840&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=
         false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=
-        false&problem=classification&initZero=false" style="border:1px solid #e1e8ed;width:120%;height:560px;)
+        false&problem=classification&initZero=false)
 
 
 # Simpsons Paradox
