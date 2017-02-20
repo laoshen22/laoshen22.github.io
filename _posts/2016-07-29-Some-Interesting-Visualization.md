@@ -43,7 +43,8 @@ author:     "Lisa"
       
        
       
-      <section>  
+  
+  <section>  
         <h1>美国公民的投票习惯演变</h1>
         <p>美国人的选举投票习惯从2004年到2012年发生了什么变化。</p>
         <a href="http://www.nytimes.com/interactive/2016/06/10/upshot/voting-habits-turnout-partisanship.html?_r=1&register=google" class="commit-link"> link</a>
