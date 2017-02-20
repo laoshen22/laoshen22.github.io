@@ -5,6 +5,9 @@ date:       2016-07-29 12:00:00
 author:     "Lisa"
 ---
 
+
+Make [visualization-talk][http://lisaling.site/visualization-talk/]
+
 # 2016欧洲杯
         
 欧洲杯的每一次进球，观众在推特上的反映。
@@ -33,12 +36,6 @@ author:     "Lisa"
 <iframe src="http://www.r2d3.us/%E5%9C%96%E8%A7%A3%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E7%AC%AC%E4%B8%80%E7%AB%A0/" style="border:1px solid #e1e8ed;width:120%;height:560px;"></iframe>
 
             
-# 美国公民的投票习惯演变
-美国人的选举投票习惯从2004年到2012年发生了什么变化。
-<a href="http://www.nytimes.com/interactive/2016/06/10/upshot/voting-habits-turnout-partisanship.html?_r=1&register=google" class="commit-link"> http://www.nytimes.com/interactive/2016/06/10/upshot/voting-habits-turnout-partisanship.html?_r=1&register=google</a>
-        
-        
-<iframe src="http://www.nytimes.com/interactive/2016/06/10/upshot/voting-habits-turnout-partisanship.html?_r=1&register=google" style="border:1px solid #e1e8ed;width:120%;height:560px;"></iframe>
        
       
   
