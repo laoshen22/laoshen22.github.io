@@ -48,7 +48,7 @@ author:     "Lisa"
 <a href="https://unfiltered.news/#/2016/07/29/ca" class="commit-link">
           https://unfiltered.news/#/2016/07/29/ca</a>
         
-![Screenshot](https://unfiltered.news/#/2016/07/29/ca)
+![Screenshot](https://unfiltered.news/#/2016/07/29/ca style="border:1px solid #e1e8ed;width:120%;height:560px;)
         
 
 
@@ -65,7 +65,7 @@ author:     "Lisa"
         circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=
         4,2&seed=0.65840&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=
         false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=
-        false&problem=classification&initZero=false)
+        false&problem=classification&initZero=false style="border:1px solid #e1e8ed;width:120%;height:560px;)
 
 
 # Simpsons Paradox
