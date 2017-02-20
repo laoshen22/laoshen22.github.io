@@ -35,14 +35,33 @@ author:     "Lisa"
        
       
   
- # 美国公民的投票习惯演变
+# 音乐流行的变化 
+在不同时间流行着怎样的音乐类型
+<a href="https://research.google.com/bigpicture/music/" class="commit-link">
+          https://research.google.com/bigpicture/music/</a></p>
+        
+        
+<iframe src="https://research.google.com/bigpicture/music/" style="border:1px solid #e1e8ed;width:120%;height:560px;"></iframe>            
+# 全球新闻主题
+全球新闻媒体当前正在报道的主题和地点。 探索形成不同观点的原因
+<a href="https://unfiltered.news/#/2016/07/29/ca" class="commit-link">
+          https://unfiltered.news/#/2016/07/29/ca</a></p>
+        
+        
+<iframe src="https://unfiltered.news/#/2016/07/29/ca" style="border:1px solid #e1e8ed;width:120%;height:560px;"></iframe>      
 
-美国人的选举投票习惯从2004年到2012年发生了什么变化。
-<a href="http://www.nytimes.com/interactive/2016/06/10/upshot/voting-habits-turnout-partisanship.html?_r=1&register=google" class="commit-link"> http://www.nytimes.com/interactive/2016/06/10/upshot/voting-habits-turnout-partisanship.html?_r=1&register=google</a>
-        
-        
-<iframe src="http://www.nytimes.com/interactive/2016/06/10/upshot/voting-habits-turnout-partisanship.html?_r=1&register=google" style="border:1px solid #e1e8ed;width:120%;height:560px;"></iframe>
-            
-        
 
- 
+# 神经网络和深度学习怎样工作
+<a href="http://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=
+        circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=
+        4,2&seed=0.65840&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=
+        false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=
+        false&problem=classification&initZero=false" class="commit-link">
+          网址链接</a></p>
+        
+<iframe src="http://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=
+        circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=
+        4,2&seed=0.65840&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=
+        false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=
+        false&problem=classification&initZero=false" style="border:1px solid #e1e8ed;width:120%;height:560px;"></iframe>
+
