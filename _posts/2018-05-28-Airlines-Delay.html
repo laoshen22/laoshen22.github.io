@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title></title>
+
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+<script src="libs/navigation-1.1/codefolding.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></link>
+<script src="libs/exploratory/resources/jquery.min.js?cb=cb1556422990557"></script>
+<script src="libs/exploratory/resources/d3.min.js?cb=cb1556422990557"></script>
+<script src="libs/exploratory/resources/viz.min.js?cb=cb1556422990557"></script>
+<script src="libs/exploratory/resources/plotly.min.js?cb=cb1556422990557"></script>
+<style  type="text/css">
+  /* plotly exploratory extension */
+  .js-plotly-plot .plotly .legendpoints  .pointtext  text {
+    visibility: hidden!important;
+  }
+  /**
+   * Workaround to make the circles in the legend in even size. 
+   * https://community.plot.ly/t/controlling-legend-circle-size-in-bubble-plot/3418
+   * https://stackoverflow.com/questions/40098827/r-plotly-version-4-5-2-scatterplot-legend-bubble-size-settings
+   * https://stackoverflow.com/questions/524696/how-to-create-a-style-tag-with-javascript
+   */
+  .legendpoints path.scatterpts { 
+    d: path('M 3.2 0 A 3.2 3.2 0 1 1 0 -3.2 A 3.2 3.2 0 0 1 3.2 0 Z'); 
+  }
+
+</style>
+<script src="libs/exploratory/analytics/Wws4ECv1.js"></script>
+<script src="libs/exploratory/analytics/vnr0PHT2.js"></script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="libs/exploratory/resources/note-base.css" type="text/css" />
+<link rel="stylesheet" href="libs/exploratory/resources/note-mobile.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        // adding '_' for the hash. Somehow single word without special chars corrupts the layout.
+        return '_'+text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+  max-width:770px; /* 700px (main body width) + padding left/right */ 
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+<style type="text/css">
+/* Styles for plain html output with 2-column layout, which is 
+   with TOC floating on the left hand side case.  */ 
+.main-container {
+  max-width: 1100px!important; /* it overrides 1200px hardcoded by rmarkdown */
+  /* those following padding properties are set in this case by the origial 2-col layout by rmarkdown */
+  /*padding-left:30px;*/
+  /*padding-right:40px;*/
+}
+
+
+/* Adjust toc styles */
+.tocify-subheader .tocify-item {
+  padding-left: 15px;
+}
+/* h3 and lower headers */
+.tocify-subheader .tocify-subheader .tocify-item {
+  padding-left: 30px;
+}
+/* override TOC default top margin */
+#TOC {
+  margin-top: 57px;
+  padding-right:20px;
+}
+@media (max-width: 768px) {
+  /* shorter top margin for mobile */
+  #TOC { margin-top:25px; padding-right:0px;}
+}
+
+
+</style>
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+<div id="airlines-delay-data" class="section level1">
+<h1>Airlines Delay Data</h1>
+<div id="background" class="section level2">
+<h2>Background</h2>
+<p>Flight on-time performance is one of the most important issues in the National Airspace System (NAS). To avoid negative impacts to the aviation industry, the Federal Aviation Administration (FAA) has set a long-term objective of understanding and mitigating flight delays. Building an effective and accurate prediction model of flight-delay incidents will help airport executives make the best decisions in delay scenarios.</p>
+<p>Let’s first set our goal as predicting flight arrival delay time by the model combination.</p>
+</div>
+<div id="the-operation-of-flight" class="section level2">
+<h2>The operation of flight</h2>
+<div class="figure">
+<img src="libs/exploratory/images/p1.png" />
+
+</div>
+</div>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<div id="resource" class="section level3">
+<h3>Resource:</h3>
+<p>The data comes from the U.S. Department of Transportation’s (DOT) <a href="https://www.transtats.bts.gov/Fields.asp?Table_ID=236">Bureau of Transportation Statistics (BTS)</a> and data (1987-present) can be downloaded from <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=" class="uri">https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=</a> We choose the data from year 2008.</p>
+</div>
+<div id="size" class="section level3">
+<h3>Size:</h3>
+<p>p=23 and n=1,927,624</p>
+</div>
+<div id="variables" class="section level3">
+<h3>Variables:</h3>
+<ol style="list-style-type: decimal">
+<li><strong>Month</strong> 1-12</li>
+<li><strong>DayofMonth</strong> 1-31</li>
+<li><strong>DayOfWeek</strong> 1 (Monday) - 7 (Sunday)</li>
+<li><strong>UniqueCarrier</strong> unique carrier code</li>
+<li><strong>TailNum</strong> plane tail number: aircraft registration, unique aircraft identifier</li>
+<li><strong>ActualElapsedTime</strong> in minutes</li>
+<li><strong>CRSElapsedTime</strong> (Scheduled Elapse time) in minutes</li>
+<li><strong>AirTime</strong> in minutes</li>
+<li><strong>ArrDelay</strong> arrival delay, in minutes: <em>A flight is counted as “on time” if it operated less than 15 minutes later the scheduled time shown in the carriers’ Computerized Reservations Systems (CRS).</em></li>
+<li><strong>DepDelay</strong> departure delay, in minutes</li>
+<li><strong>Origin</strong> origin IATA airport code</li>
+<li><strong>Dest</strong> destination IATA airport code</li>
+<li><strong>Distance</strong> in miles</li>
+<li><strong>TaxiIn</strong> taxi in time, in minutes</li>
+<li><strong>TaxiOut</strong> taxi out time, in minutes</li>
+<li><strong>Cancelled</strong>: was the flight cancelled</li>
+<li><strong>CancellationCode</strong> reason for cancellation (A = carrier, B = weather, C = security, N = NAS)</li>
+<li><strong>Diverted</strong> 1 = yes, 0 = no</li>
+<li><strong>CarrierDelay</strong> in minutes: <em>carrier delay are: aircraft cleaning, aircraft damage, awaiting the arrival of connecting passengers or crew, baggage, bird strike, cargo loading, catering, computer, outage-carrier equipment, crew legality (pilot or attendant rest), damage by hazardous goods, engineering inspection, fueling, handling disabled passengers, late crew, lavatory servicing, maintenance, oversales, potable water servicing, removal of unruly passenger, slow boarding or seating, stowing carry-on baggage, weight and balance delays.</em></li>
+<li><strong>WeatherDelay</strong> in minutes: *extreme or hazardous weather conditions that are forecasted or manifest themselves on point of departure, enroute, or on point of arrival.</li>
+<li><strong>NASDelay</strong> in minutes: <em>Delay that is within the control of the National Airspace System (NAS) may include: non-extreme weather conditions, airport operations, heavy traffic volume, air traffic control, etc.</em></li>
+<li><strong>SecurityDelay</strong> in minutes: <em>evacuation of a terminal or concourse, re-boarding of aircraft because of security breach, inoperative screening equipment and/or long lines in excess of 29 minutes at screening areas.</em></li>
+<li><strong>LateAircraftDelay</strong> in minutes: <em>the late arrival of the same aircraft at a previous airport. The ripple effect of an earlier delay at downstream airports is referred to as delay propagation.</em></li>
+</ol>
+</div>
+</div>
+<div id="removed-variable" class="section level2">
+<h2>Removed variable</h2>
+<ul>
+<li><strong>Cancelled</strong>, <strong>CancellationCode</strong> and <strong>Diverted</strong> only have a single unique value and are removed.</li>
+<li><strong>TailNum</strong> has too many levels (5336) and is removed.</li>
+</ul>
+<div class="figure">
+<img src="libs/exploratory/images/p2.png" />
+
+</div>
+</div>
+<div id="new-variable" class="section level2">
+<h2>New variable</h2>
+<ul>
+<li><strong>ElapDelay</strong>=ActualElapsedTime- CRSElapsedTime</li>
+<li><strong>log_ArrDelay</strong>: log transformation of ArrDelay</li>
+</ul>
+</div>
+<div id="sample-data-sample-size10000" class="section level2">
+<h2>Sample data (sample size=10000)</h2>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="right">Month</th>
+<th align="right">DayofMonth</th>
+<th align="right">DayOfWeek</th>
+<th align="left">UniqueCarrier</th>
+<th align="left">Origin</th>
+<th align="left">Dest</th>
+<th align="right">Distance</th>
+<th align="right">TaxiOut</th>
+<th align="right">AirTime</th>
+<th align="right">TaxiIn</th>
+<th align="right">ActualElapsedTime</th>
+<th align="right">CRSElapsedTime</th>
+<th align="right">ElapDelay</th>
+<th align="right">DepDelay</th>
+<th align="right">ArrDelay</th>
+<th align="right">CarrierDelay</th>
+<th align="right">WeatherDelay</th>
+<th align="right">NASDelay</th>
+<th align="right">SecurityDelay</th>
+<th align="right">LateAircraftDelay</th>
+<th align="right">log_ArrDelay</th>
+<th align="right">log_DepDelay</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">9</td>
+<td align="right">7</td>
+<td align="left">WN</td>
+<td align="left">BWI</td>
+<td align="left">CMH</td>
+<td align="right">336</td>
+<td align="right">16</td>
+<td align="right">65</td>
+<td align="right">7</td>
+<td align="right">88</td>
+<td align="right">75</td>
+<td align="right">13</td>
+<td align="right">65</td>
+<td align="right">78</td>
+<td align="right">7</td>
+<td align="right">0</td>
+<td align="right">13</td>
+<td align="right">0</td>
+<td align="right">58</td>
+<td align="right">1.850094</td>
+<td align="right">4.174387</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">9</td>
+<td align="right">1</td>
+<td align="left">YV</td>
+<td align="left">SBA</td>
+<td align="left">PHX</td>
+<td align="right">455</td>
+<td align="right">14</td>
+<td align="right">62</td>
+<td align="right">11</td>
+<td align="right">87</td>
+<td align="right">94</td>
+<td align="right">-7</td>
+<td align="right">15</td>
+<td align="right">8</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">1.807550</td>
+<td align="right">2.708050</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="left">EV</td>
+<td align="left">GSO</td>
+<td align="left">ATL</td>
+<td align="right">306</td>
+<td align="right">9</td>
+<td align="right">58</td>
+<td align="right">10</td>
+<td align="right">77</td>
+<td align="right">82</td>
+<td align="right">-5</td>
+<td align="right">19</td>
+<td align="right">14</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">1.812683</td>
+<td align="right">2.944439</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">15</td>
+<td align="right">2</td>
+<td align="left">AS</td>
+<td align="left">PDX</td>
+<td align="left">BOS</td>
+<td align="right">2537</td>
+<td align="right">17</td>
+<td align="right">295</td>
+<td align="right">4</td>
+<td align="right">316</td>
+<td align="right">310</td>
+<td align="right">6</td>
+<td align="right">21</td>
+<td align="right">27</td>
+<td align="right">21</td>
+<td align="right">0</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1.822529</td>
+<td align="right">3.044522</td>
+</tr>
+<tr class="odd">
+<td align="right">6</td>
+<td align="right">12</td>
+<td align="right">4</td>
+<td align="left">UA</td>
+<td align="left">DEN</td>
+<td align="left">ORD</td>
+<td align="right">888</td>
+<td align="right">19</td>
+<td align="right">153</td>
+<td align="right">4</td>
+<td align="right">176</td>
+<td align="right">143</td>
+<td align="right">33</td>
+<td align="right">32</td>
+<td align="right">65</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">33</td>
+<td align="right">0</td>
+<td align="right">32</td>
+<td align="right">1.844300</td>
+<td align="right">3.465736</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">7</td>
+<td align="left">MQ</td>
+<td align="left">MEM</td>
+<td align="left">ORD</td>
+<td align="right">491</td>
+<td align="right">10</td>
+<td align="right">81</td>
+<td align="right">9</td>
+<td align="right">100</td>
+<td align="right">115</td>
+<td align="right">-15</td>
+<td align="right">8</td>
+<td align="right">-7</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">1.792610</td>
+<td align="right">2.079442</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure">
+<img src="libs/exploratory/images/p3.JPG" />
+
+</div>
+</div>
+</div>
+<div id="understand-of-variables" class="section level1">
+<h1>Understand of variables</h1>
+<p>From my understanding of the data, it seems not suitable for our problem. The Arrival delay just breaks down to 5 different types of delay. And other variables like airline carriers and destination airports are not very significant in the prediction of arrival delay. I show the relationship of these variables in the following picture.</p>
+<div class="figure">
+<img src="libs/exploratory/images/p4.jpg" />
+
+</div>
+<div class="figure">
+<img src="libs/exploratory/images/p5.jpg" />
+
+</div>
+<div id="variable-importance" class="section level2">
+<h2>Variable Importance</h2>
+<script data-id="analytics_1" data-object-name="analytics_Wws4ECv1" data-viz="feature_importance_bar" data-analysis="Wws4ECv1" data-height="normal" data-width="normal" ></script><div data-id="analytics_1" style="width:100%; height:400px; display:table;margin-bottom:38px" class="viz-rendering-error viz-loading"><div style="width:100%; height:100%; display:table-cell; vertical-align:middle; text-align:center; font-size:14px; color:#999; background-color:white;font-family:sans-serif "><div>Loading... </div></div></div>
+<p>Effect by variables <script data-id="analytics_2" data-object-name="analytics_Wws4ECv1" data-viz="local_importance_regression" data-analysis="Wws4ECv1" data-height="normal" data-width="normal" ></script><div data-id="analytics_2" style="width:100%; height:400px; display:table;margin-bottom:38px" class="viz-rendering-error viz-loading"><div style="width:100%; height:100%; display:table-cell; vertical-align:middle; text-align:center; font-size:14px; color:#999; background-color:white;font-family:sans-serif "><div>Loading... </div></div></div></p>
+</div>
+<div id="correlation" class="section level2">
+<h2>Correlation</h2>
+<script data-id="analytics_3" data-object-name="analytics_vnr0PHT2" data-viz="heatmap" data-analysis="vnr0PHT2" data-height="normal" data-width="normal" ></script><div data-id="analytics_3" style="width:100%; height:400px; display:table;margin-bottom:38px" class="viz-rendering-error viz-loading"><div style="width:100%; height:100%; display:table-cell; vertical-align:middle; text-align:center; font-size:14px; color:#999; background-color:white;font-family:sans-serif "><div>Loading... </div></div></div>
+<script data-id="analytics_4" data-object-name="analytics_vnr0PHT2" data-viz="scattermatrix" data-analysis="vnr0PHT2" data-height="normal" data-width="normal" ></script><div data-id="analytics_4" style="width:100%; height:400px; display:table;margin-bottom:38px" class="viz-rendering-error viz-loading"><div style="width:100%; height:100%; display:table-cell; vertical-align:middle; text-align:center; font-size:14px; color:#999; background-color:white;font-family:sans-serif "><div>Loading... </div></div></div>
+</div>
+<div id="reference" class="section level2">
+<h2>Reference</h2>
+<ol style="list-style-type: decimal">
+<li>Truong, Dothang, Mark A. Friend, and Hongyun Chen. “Applications of business analytics in predicting flight on-time performance in a complex and dynamic system.” Transportation Journal 57.1 (2018): 24-52.</li>
+<li>Sternberg, Alice, et al. “A review on flight delay prediction.” arXiv preprint arXiv:1703.06118 (2017).</li>
+<li>ASQP: Definitions of Variables: <a href="https://aspmhelp.faa.gov/index.php/ASQP:_Definitions_of_Variables" class="uri">https://aspmhelp.faa.gov/index.php/ASQP:_Definitions_of_Variables</a></li>
+</ol>
+</div>
+</div>
+
+<!-- BEGIN: Exploratory custom footer -->
+
+<script>
+
+var FULL_WIDTH_MARGIN_SIDE = 60;
+var $body = $(document.body);
+var screenWidth = $body.width();
+// The default body max-width is set to 782px so if it is less than 902px 
+// (782 + 60 left margin + 60 right margin) we cancel stretching images. 
+$('img[width="full"]').each(function() {
+  var $elem = $(this);
+  if (screenWidth > 902) {
+    $elem.attr("width", "");  // remove "full"
+    var elemOffsetLeft = $elem.offset().left;
+    $elem.css({"width": (screenWidth - (FULL_WIDTH_MARGIN_SIDE*2) )+'px', "max-width": (screenWidth - (FULL_WIDTH_MARGIN_SIDE*2) )+'px', "margin-left": (-1 *(elemOffsetLeft - FULL_WIDTH_MARGIN_SIDE)) + "px" });
+  } else {
+    $elem.attr("width", "100%"); // replace "full" with "100%"
+  }
+});
+
+$('a').each(function(index, a){
+  var $link = $(this);
+  if($link.attr('href') && !$link.attr('href').startsWith('file')){// tab has a with href="file" so exclude tab
+    $link.attr('target','_blank'); // make sure link opens another tab or window.
+  }
+});
+
+
+</script>
+
+<script>
+
+
+// Find exploratory vizs
+var $vizs = $("script[data-id]");
+// View area width. 
+var screenWidth = $(document.body).width();
+// View area height. 
+var screenHeight = $(window).height();
+
+// In case of shared note, the note is loaded in the iframe so the screen
+// height is shorter than the actual screen size so we need to adjust it.
+// Accessing the parent fails if you open it locally (including opening on desktop) 
+// because of the cross origin so just to check. 
+if (!/^file:/.test(window.location.href)) {
+  var offset = $(window.parent.document).find("iframe.markdown-content-frame").offset();
+  if (offset && offset.top) {
+    screenHeight+=offset.top;
+  }
+}
+
+var _generateSnapshot = function() {
+  var $elem = $(this); // this <a> tag
+  var id = $elem.attr("data-id").replace(/^a\-/, "");
+  var objectName = $elem.attr("data-object-name");
+  var analyticsName = null;
+
+  var viz = window[objectName];
+  if (!window._datauris) 
+    window._datauris = {};
+  
+  // If it is analytics, find the viz metadata in analytics json.
+  if (/^analytics_/.test(id)) {
+    var vizName = $elem.attr("data-viz");
+    // If no corresponding metadata found, just return. 
+    if (!viz.vizs[vizName]) {
+      return;
+    }
+    analyticsName = viz.name;
+    viz = viz.vizs[vizName].metadata;
+  }
+  
+  if (VizUtil.isPivot(viz.options.marker)) {
+      // do nothing.
+  } else if (VizUtil.isLeaflet(viz.options.marker)) {
+    var map = window._leaflet_map_objs[id];
+    var options = {
+      exclude: ['.leaflet-control-zoom', '.leaflet-control-attribution', '.info-box'],
+      format: 'image/png'
+    };
+    return map.export(options)
+    .then(function(res) {
+      window._datauris[id] = res ? res.data : "null";
+      return null;
+    })
+    .catch(function(e){
+      window._datauris[id] = "null";
+    });
+  } else if (VizUtil.isROutput(viz.options.marker)) {
+  } else if (VizUtil.isPlotly(viz.options.marker)) {
+    // plotly
+    var graphDiv = document.querySelector('div[data-id="div-'+id+'"] .js-plotly-plot');
+    var origw = graphDiv.clientWidth;
+    var origh = graphDiv.scrollHeight;
+    var width = 1200; 
+    var height = graphDiv.scrollHeight > graphDiv.clientHeight ? width * origh / origw : 800;
+    return Plotly.toImage(graphDiv,  {format: "png", width: width, height: height})
+    .then(function(res){
+      window._datauris[id] = !!res ? res : "null";
+    }) 
+    .catch(function(e){
+      window._datauris[id] = "null";
+    });
+  }
+
+};
+
+var _processViz = function() {
+  
+  var $elem = $(this); // This script tag
+  var id = $elem.attr("data-id");
+  var objectName = $elem.attr("data-object-name");
+  // Hide loading placeholer
+  // It could match multiple elements if there are same charts.
+  $('.viz-loading[data-id="'+id+'"]').hide();
+  // Backward compatibility. The rmarkdown renders the old cached data if available.
+  $('.viz-rendering-error[id="loading-'+id+'"]').hide();
+  
+  var viz = window[objectName];
+  var vizName = $elem.attr("data-viz");
+  var analyticsName = null;
+
+  // If it is analytics, find the viz metadata in analytics json.
+  if (/^analytics_/.test(id)) {
+    if (viz.vizs[vizName]) {
+      analyticsName = viz.name;
+      viz = VizUtil.analyticify(viz.vizs[vizName].metadata);
+    } else {
+      // If no metadata found, just set viz to null. 
+      // Usually it shouldn't happen but just in case it happens. #9689
+      viz = null;
+    }
+  }
+
+  var containerWidth = $elem.parent().width();
+
+  // The default body max-width: 782px. 
+  // The default body width including margin: 902px (782 + 60(side margin) * 2), 
+  var FULL_WIDTH_MARGIN_SIDE = screenWidth > 902 ? 60 : 0;  
+  var FULL_HEIGHT_MARGIN_TOP = 10;  
+
+  var isFullHeightMode = false;
+  var isFullWidthMode = false;
+
+  // User-specified height
+  var userHeightStr = $elem.attr("data-height");
+  var userHeight = null;
+  if (userHeightStr) {
+    if (userHeightStr==="full") {
+      isFullHeightMode = true;
+      userHeight = screenHeight  - FULL_HEIGHT_MARGIN_TOP;
+    } else if (/%$/.test(userHeightStr)) {
+      userHeight = parseInt(userHeightStr.replace("%",""));
+      userHeight = isNaN(userHeight) ? null : (screenHeight * userHeight / 100) - FULL_HEIGHT_MARGIN_TOP;
+    } else {
+      userHeight = parseInt(userHeightStr.replace("px",""));
+      userHeight = isNaN(userHeight) ? null : userHeight;
+    }
+  }
+  // User-specified width
+  var userWidthStr = $elem.attr("data-width");
+  var userWidth = null;
+  if (userWidthStr) {
+    if (userWidthStr==="full") {
+      isFullWidthMode = true;
+      userWidth = screenWidth - FULL_WIDTH_MARGIN_SIDE*2;
+    } else if (/%$/.test(userWidthStr)) {
+      userWidth = parseInt(userWidthStr.replace("%",""));
+      userWidth = isNaN(userWidth) ? null : (screenWidth * userWidth / 100) - (FULL_WIDTH_MARGIN_SIDE*2);
+    } else {
+      userWidth = parseInt(userWidthStr.replace("px",""));
+      userWidth = isNaN(userWidth) ? null : userWidth;
+    }
+  }
+
+  // Special handling. If user specified "full" for width and nothing 
+  // specified for height, set the height to the screen height. 
+  if (isFullWidthMode && !userHeight) {
+    userHeight = screenHeight  - FULL_HEIGHT_MARGIN_TOP;
+  }
+
+  // Set the min height. If userHeight is available, just use it. 
+  // If not, try to set a rectangle shape. Use landscape mode If the screen is 
+  // large enough. If small (mobile case), use portrait mode.
+  var minHeight = userHeight || (containerWidth<500 ? containerWidth*8/5 : containerWidth*5/8);
+
+  // Insert a viz canvas div right after the script tag.
+  var $div = $("<div>").attr('data-id','div-'+id).css({"min-height":minHeight+"px", "margin-bottom":"38px" }).addClass("viz-container markdown-viz-container")   
+  $elem.after($div);
+  // If viz is not available, render no data and exit. 
+  if (!viz) {
+    $div.height(minHeight);
+    VizUtil.renderNoData($div[0], "No chart data found: "+vizName);
+    // Mark it as rendered.
+    window._vizRenderingStatus[id] = true;  
+    return;
+  } 
+ 
+  // Add a border to table/pivot
+  if ( /^(table|pivot)$/.test(viz.options.marker)) {
+    $div.css({"border-radius":"3px", "border":"1px solid rgb(204,204,204)", "padding":"0px 0px 0px 4px"});
+  }
+  // If plotly viz, add white background color to make viz visible on TOC
+  // if the viz width="full".
+  if (! /^(table|pivot|map|maphmap|geojson)/.test(viz.options.marker)) {
+    $div.css({"background-color": "#ffffff"});
+  }
+
+
+  var $trigger = $("<a>").attr({'data-id':'a-'+id, 'data-viz':vizName, 'data-object-name':objectName}).addClass("viz-snapshot-trigger").click(_generateSnapshot);
+  $elem.after($trigger);   
+
+  var divWidth  = $div.width(); 
+  var divHeight = $div.height();
+  var width = userWidth ||  divWidth;
+  var height = userHeight || divHeight
+
+  // If no scroll specified for height, not to set hight to let the div 
+  // expand to fit the content without the vertical scrollbar. 
+
+  // allow full height setting only if 
+  // 1. the viz is either pivot or table, or 
+  // 2. plotly chart with repeating.
+  var allowFullHeight = !!viz.options.facet || /^(table|pivot)$/.test(viz.options.marker);
+  if (isFullHeightMode && allowFullHeight) {
+    // In case of full height setting, not to specify height. 
+  } else {
+    $div.css({'height': height+'px'});
+  }
+
+  $div.css({'width': width+'px'});
+
+  // If the width is given by user, adjust the left margin to locate the viz 
+  // in the center. If it is in the full width mode, adjust the margin based 
+  // on the screen size. 
+  if (isFullWidthMode) {
+    $div.css('margin-left', ((-1 * ($div.offset().left - FULL_WIDTH_MARGIN_SIDE)) + 'px'));
+  } else if (userWidth && userWidth !== divWidth) {
+    $div.css('margin-left', ((userWidth - divWidth) / 2 * -1 ) + 'px');
+  }
+
+  // in case of facet, make the viz width a bit smaller for the vert scroll bar. 
+  viz.options.width = (!viz.options.facet ? width : width-20);
+  viz.options.height= height;
+
+  // Show no data message if data is empty. 
+  // Some chart can render its own no data message so bypass for those cases. 
+  if (VizUtil.shouldRenderNoData(viz.options.data, viz.options)) {
+    VizUtil.renderNoData($div[0]);
+    // Mark it as rendered.
+    window._vizRenderingStatus[id] = true;    
+    return;
+  }
+
+  if (VizUtil.isPivot(viz.options.marker)) {
+    // Render pivot table
+    PivotTableGenerator.render(viz.options, viz.options.data, $div[0]);
+    // adjust height 
+    var pTitleHeight = $div.find('.pivot-title').outerHeight(true); 
+    if ($div.find('.pivot-title').hasClass("hidden")) {
+      pTitleHeight = 0;
+    }
+    var pColTitleHeight = $div.find('.pivot-col-title').outerHeight(true);
+    if ($div.find('.pivot-col-title').hasClass("hidden")) {
+      pColTitleHeight = 0;
+    }
+    var pHeaderHeight = $div.find('.pivot-table-frame.pivot-table-col-header-frame').outerHeight();
+    var pBodyHeight = $div.find('.pivot-table-frame.pivot-table-body-frame').outerHeight();
+    var horizScrollBarHeight = 18;
+    var pHeight = pTitleHeight + pColTitleHeight + pHeaderHeight + pBodyHeight + horizScrollBarHeight;
+    //console.log(pTitleHeight + " " +pColTitleHeight + " " + pHeaderHeight + " " + pBodyHeight + " " + pHeight + " " + $div.height())
+    if (viz.options.marker==="singlevalue"){
+      $div.css({'height':'120px', 'min-height':'120px'});
+    } else if (pHeight < $div.height()) {
+      $div.css({"height": (pHeight)+'px', "min-height":""});
+    }
+
+  } else if (VizUtil.isLeaflet(viz.options.marker)) {
+    // Render leaflet map
+    switch (viz.options.marker) {
+      case 'map':
+      case 'maphmap':
+        $div.parent().parent().css({"background-color":"#fff"});
+        MapGenerator.render(viz.options, viz.options.data, $div[0]);
+        break;
+      case 'geojson':
+        $div.parent().parent().css({"background-color":"#fff"});
+        var geojsonObjectName = 'geojson_' + viz.options.geojson; 
+        MapGenerator.render(viz.options, viz.options.data, $div[0], window[geojsonObjectName]);
+        break;
+      default:
+        break;
+    }
+  } else if (VizUtil.isROutput(viz.options.marker)) {
+    // Render R output
+    ROutputGenerator.render(viz.options, {"outputFile": [ "libs/exploratory/layout_output/"+ (analyticsName ? analyticsName+"-" : "") + viz.name+".png"]}, $div[0], true);
+  } else if (VizUtil.isPlotly(viz.options.marker)) {
+    // Render plotly graph
+    $div.css({"overflow-y":"auto"});
+    PlotlyGraphGenerator.render(viz.options, viz.options.data, $div[0], true);
+  }
+
+  // Mark it as rendered.
+  window._vizRenderingStatus[id] = true;
+}
+
+// Track the viz rendering status. 
+window._vizRenderingStatus = {};
+
+$vizs.each(function(index) {
+  window._vizRenderingStatus[$(this).attr("data-id")] = false;
+  setTimeout(_processViz.bind(this) ,50);
+});
+
+
+</script>
+<!-- END: Exploratory custom footer -->
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+
+</body>
+</html>
