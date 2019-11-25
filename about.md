@@ -12,3 +12,7 @@ I’m currently a PhD student from Department of Statistics, Dalhousie Universit
 I love [photography](https://www.flickr.com/photos/lisaling/) and pole dancing (my [instagram](https://www.instagram.com/lisaling22)).
 
 
+Teaching: [Stat 2060: Introduction to Probability and Statistics](http://lisaling.site/stat2060/).
+
+
+
