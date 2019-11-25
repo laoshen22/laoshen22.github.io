@@ -1,10 +1,3 @@
----
-layout:     post
-title:      "NYS School Performance"
-date:       2018-12-09 12:00:00
-author:     "Lisa"
----
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -20,20 +13,20 @@ author:     "Lisa"
 
 <title></title>
 
-<script src="libs2/jquery-1.11.3/jquery.min.js"></script>
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="libs2/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
-<script src="libs2/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="libs2/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="libs2/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="libs2/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="libs2/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="libs2/tocify-1.9.1/jquery.tocify.js"></script>
-<script src="libs2/navigation-1.1/tabsets.js"></script>
-<script src="libs2/navigation-1.1/codefolding.js"></script>
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+<script src="libs/navigation-1.1/codefolding.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></link>
-<script src="libs2/exploratory/resources/jquery.min.js?cb=cb1559763500245"></script>
+<script src="libs/exploratory/resources/jquery.min.js?cb=cb1559763500245"></script>
 
 
 
@@ -66,8 +59,8 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="libs2/exploratory/resources/note-base.css" type="text/css" />
-<link rel="stylesheet" href="libs2/exploratory/resources/note-mobile.css" type="text/css" />
+<link rel="stylesheet" href="libs/exploratory/resources/note-base.css" type="text/css" />
+<link rel="stylesheet" href="libs/exploratory/resources/note-mobile.css" type="text/css" />
 
 </head>
 
@@ -275,7 +268,7 @@ div.tocify {
 <h2>Response</h2>
 <p>Here the Math Score is response. The scale scores range from 148 to 423, and we centered and scaled it as final response in the model.</p>
 <div class="figure">
-<img src="libs2/exploratory/images/p1.png" />
+<img src="libs/exploratory/images/p1.png" />
 
 </div>
 </div>
@@ -284,7 +277,7 @@ div.tocify {
 <p>The test results are correlated with student characteristics including disability status, English Language Learner (ELL) status, race/ethnicity, eligibility for free and reduced price lunch status, and gender.</p>
 <p>School Survey variables capture the learning environment, school evaluations, student assessments and other scores. It utilizes feedback from students, teachers, and parents received through the annual NYC School Survey.</p>
 <div class="figure">
-<img src="libs2/exploratory/images/p2.png" />
+<img src="libs/exploratory/images/p2.png" />
 
 </div>
 <ol style="list-style-type: decimal">
@@ -306,7 +299,7 @@ div.tocify {
 <li>Trust Score</li>
 </ol>
 <div class="figure">
-<img src="libs2/exploratory/images/p3.JPG" />
+<img src="libs/exploratory/images/p3.JPG" />
 
 </div>
 </div>
@@ -317,7 +310,7 @@ div.tocify {
 <div id="missing-pattern" class="section level2">
 <h2>Missing Pattern</h2>
 <div class="figure">
-<img src="libs2/exploratory/images/p4.png" />
+<img src="libs/exploratory/images/p4.png" />
 
 </div>
 </div>
@@ -328,14 +321,14 @@ div.tocify {
 <li>The orange line represents other schools in New York State.</li>
 </ul>
 <div class="figure">
-<img src="libs2/exploratory/images/p5.png" />
+<img src="libs/exploratory/images/p5.png" />
 
 </div>
 </div>
 <div id="correlation" class="section level2">
 <h2>Correlation</h2>
 <div class="figure">
-<img src="libs2/exploratory/images/p6.png" />
+<img src="libs/exploratory/images/p6.png" />
 
 </div>
 <p>Linear models will be benefit from reducing the level of correlation between the predictors. We remove absolute pair-wise correlations greater than 0.82, which are Economic Need Index and Poverty.</p>
@@ -344,7 +337,7 @@ summary(descrCor[upper.tri(descrCor)])
 highlyCorDescr &lt;- findCorrelation(descrCor, cutoff = .82)
 Data &lt;- Data[,-highlyCorDescr]</code></pre>
 <div class="figure">
-<img src="libs2/exploratory/images/p7.png" />
+<img src="libs/exploratory/images/p7.png" />
 
 </div>
 </div>
@@ -356,11 +349,11 @@ Data &lt;- Data[,-highlyCorDescr]</code></pre>
 <div id="rmse-result" class="section level3">
 <h3>RMSE result</h3>
 <div class="figure">
-<img src="libs2/exploratory/images/p8.png" />
+<img src="libs/exploratory/images/p8.png" />
 
 </div>
 <div class="figure">
-<img src="libs2/exploratory/images/p9.png" />
+<img src="libs/exploratory/images/p9.png" />
 
 </div>
 </div>
@@ -374,7 +367,7 @@ Data &lt;- Data[,-highlyCorDescr]</code></pre>
 <li>hatb_M0: <span class="math inline"><em>β</em><sub>Partial Model with overlaps</sub></span></li>
 </ul>
 <div class="figure">
-<img src="libs2/exploratory/images/p10.png" />
+<img src="libs/exploratory/images/p10.png" />
 
 </div>
 </div>
@@ -385,18 +378,18 @@ Data &lt;- Data[,-highlyCorDescr]</code></pre>
 <div id="rmse-result-1" class="section level3">
 <h3>RMSE result</h3>
 <div class="figure">
-<img src="libs2/exploratory/images/p8.png" />
+<img src="libs/exploratory/images/p8.png" />
 
 </div>
 <div class="figure">
-<img src="libs2/exploratory/images/p11.png" />
+<img src="libs/exploratory/images/p11.png" />
 
 </div>
 </div>
 <div id="coefficient-1" class="section level3">
 <h3>Coefficient</h3>
 <div class="figure">
-<img src="libs2/exploratory/images/p12.png" />
+<img src="libs/exploratory/images/p12.png" />
 
 </div>
 </div>
@@ -702,7 +695,7 @@ var _processViz = function() {
     }
   } else if (VizUtil.isROutput(viz.options.marker)) {
     // Render R output
-    ROutputGenerator.render(viz.options, {"outputFile": [ "libs2/exploratory/layout_output/"+ (analyticsName ? analyticsName+"-" : "") + viz.name+".png"]}, $div[0], true);
+    ROutputGenerator.render(viz.options, {"outputFile": [ "libs/exploratory/layout_output/"+ (analyticsName ? analyticsName+"-" : "") + viz.name+".png"]}, $div[0], true);
   } else if (VizUtil.isPlotly(viz.options.marker)) {
     // Render plotly graph
     $div.css({"overflow-y":"auto"});
