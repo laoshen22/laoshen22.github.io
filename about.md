@@ -14,7 +14,7 @@ I love [photography](https://www.flickr.com/photos/lisaling/) and pole dancing (
 
 * Teaching: [Stat 2060: Introduction to Probability and Statistics](http://lisaling.site/stat2060/).
 
-* <a href="Resume-Lisa.pdf">Resume</a>
+* [Resume](https://github.com/laoshen22/laoshen22.github.io/blob/master/Resume-Lisa.pdf)
 
 
 
