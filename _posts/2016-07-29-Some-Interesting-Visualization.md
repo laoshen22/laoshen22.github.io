@@ -56,13 +56,7 @@ author:     "Lisa"
 <a href="https://interactive.twitter.com/game-of-thrones/#?episode=60" class="commit-link">
           https://interactive.twitter.com/game-of-thrones/#?episode=60</a>
         
-        
 
-
-
-            
-       
-      
   
          
 # 全球新闻主题
@@ -71,20 +65,16 @@ author:     "Lisa"
           https://unfiltered.news/#/2016/07/29/ca</a>
         
 
-        
-
-
-
 
 
 
 # Another example
 Hans Rosling's 200 Countries, 200 Years, 4 Minutes - The Joy of Stats
-<html>
-       <body>
-        <iframe width="560" height="315" src="https://www.youtube.com/watch?v=jbkSRLYSojo" frameborder="0" allowfullscreen></iframe>
-       </body>
-       </html>
+<a href="https://www.youtube.com/watch?v=jbkSRLYSojo" class="commit-link">
+          https://www.youtube.com/watch?v=jbkSRLYSojo</a>
+        
+
+
 
 
 
